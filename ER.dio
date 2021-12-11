@@ -66,7 +66,7 @@
                 <mxCell id="35" value="pretecture_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="33" vertex="1">
                     <mxGeometry y="56" width="320" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="36" value="house number&#10;&#10;building&#10;&#10;telephone&#10;&#10;city&#10;&#10;orders" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="33" vertex="1">
+                <mxCell id="36" value="house number&#10;&#10;building&#10;&#10;telephone&#10;&#10;city&#10;&#10;order" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="33" vertex="1">
                     <mxGeometry y="86" width="320" height="144" as="geometry"/>
                 </mxCell>
                 <mxCell id="37" value="" style="fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.006;entryY=0.028;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="18" target="36">

@@ -1,9 +1,9 @@
 users テーブル
 | Column             | Type   | Options                   |
 |--------------------|--------|---------------------------|
-| nickname           | string | null: false, unique: true |
+| nickname           | string | null: false               |
 | email              | string | null: false, unique: true |
-| encrypted_password | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
 | last_name          | string | null: false               |
 | first_name         | string | null: false               |
 | read_name_last     | string | null: false               |
@@ -52,7 +52,7 @@ addresses テーブル
 | house_number  | string     | null: false                    |
 | building      | string     |                                |
 | telephone     | string     | null: false                    |
-| orders        | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 .association
 belongs_to : order
