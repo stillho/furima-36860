@@ -6,7 +6,9 @@ users テーブル
 | encrypted_password | string | null: false |
 | last_name          | string | null: false |
 | first_name         | string | null: false |
-| birthday           | string | null: false |
+| read_name(last)    | string | null: false |
+| read_name(first)   | string | null: false |
+| birth_date         | string | null: false |
 
 .association
 has_many items
@@ -16,7 +18,7 @@ items テーブル
 | Column     | Type       | Options                        |
 |------------|------------|--------------------------------|
 | item_name  | string     | null: false                    |
-| item_price | string     | null: false                    |
+| item_price | integer    | null: false                    |
 | category   | string     | null: false                    |
 | situation  | text       | null: false                    |
 | load       | string     | null: false                    |
@@ -24,34 +26,32 @@ items テーブル
 | area       | string     | null: false                    |
 | explain    | text       | null: false                    |
 | aim        | text       | null: false                    |
-| comment    | text       | null: false                    |
 | user       | references | null: false, foreign_key: true |
 
 .association
-belongs_to users
-has_one buys
+belongs_to user
+has_one buy
 
 buys テーブル
-|Column|Type|Options|
-|------|----|-------|
+| Column     | Type       | Options                        |
+|------------|------------|--------------------------------|
 | user       | references | null: false, foreign_key: true |
-| item_name  | references | null: false, foreign_key: true |
-| total      | string     | null: false,                   |
+| item       | references | null: false, foreign_key: true |
 
 .association
-belongs_to items
-has_many address
+belongs_to item
+has_one address
 
-address テーブル
+addresses テーブル
 | Column       | Type       | Options                        |
 |--------------|------------|--------------------------------|
 | postal_code  | string     | null: false                    |
 | town         | string     | null: false                    |
-| city         | text       | null: false                    |
-| house_number | text       | null: false                    |
-| building     | text       | none                           |
+| city         | string     | null: false                    |
+| house_number | string     | null: false                    |
+| building     | string     |                                |
 | telephone    | string     | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
 .association
-belongs_to buys
+belongs_to buy
