@@ -13,12 +13,7 @@ class Item < ApplicationRecord
     validates :image
     validates :item_name
     validates :item_price
-    validates :category_id
-    validates :item_status_id
-    validates :cost_id
-    validates :prefecture_id
     validates :item_info
-    validates :aim_id
   end
 
   validates :item_price,
