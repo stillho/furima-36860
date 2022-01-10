@@ -19,7 +19,7 @@ items テーブル
 |------------------|------------|--------------------------------|
 | item_name        | string     | null: false                    |
 | item_price       | integer    | null: false                    |
-| category_id      | integer    | null: false                    |
+| category_id    | integer    | null: false                    |
 | item_status_id   | integer    | null: false                    |
 | cost_id          | integer    | null: false                    |
 | prefecture_id    | integer    | null: false                    |
