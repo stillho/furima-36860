@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
-    @user = FactoryBot.build(:user)
     @item.image = fixture_file_upload('public/images/test_image.png')
   end
 
@@ -62,12 +61,22 @@ RSpec.describe Item, type: :model do
       it 'item_priceが全角数字だと出品できない' do
         @item.item_price = '２０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include('Item price Out of setting range', 'Item price Half-width number.')
+        expect(@item.errors.full_messages).to include('Item price Half-width number.')
       end
-      it 'item_priceが設定範囲外だと出品できない' do
-        @item.item_price = '10000000000'
+      it 'item_priceが設定範囲外だと出品できない(上限)' do
+        @item.item_price = 10000000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Item price Out of setting range')
+      end
+      it 'item_priceが設定範囲外だと出品できない(下限)' do
+        @item.item_price = 100
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Item price Out of setting range')
+      end
+      it 'ユーザーが紐ついていないと出品できない' do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include('User must exist')
       end
     end
   end
