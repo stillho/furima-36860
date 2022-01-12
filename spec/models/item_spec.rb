@@ -63,7 +63,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Item price Half-width number.')
       end
       it 'item_priceが設定範囲外だと出品できない(上限)' do
-        @item.item_price = 10_000_000_000
+        @item.item_price = 10000000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Item price Out of setting range')
       end
