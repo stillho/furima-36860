@@ -1,6 +1,5 @@
 <%= render "shared/header" %>
 
-<%# 商品の概要 %>
 <div class="item-show">
   <div class="item-box">
     <h2 class="name">
@@ -43,27 +42,27 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= "出品者名" %></td>
+          <td class="detail-value"><%= @item.item_name %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= "カテゴリー名" %></td>
+          <td class="detail-value"><%= @item.category.name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= "商品の状態" %></td>
+          <td class="detail-value"><%= @item.item_status.name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= "発送料の負担" %></td>
+          <td class="detail-value"><%= @item.cost.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= "発送元の地域" %></td>
+          <td class="detail-value"><%= @item.prefecture.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= "発送日の目安" %></td>
+          <td class="detail-value"><%= @item.aim.name %></td>
         </tr>
       </tbody>
     </table>
@@ -78,7 +77,6 @@
       </div>
     </div>
   </div>
-  <%# /商品の概要 %>
 
   <div class="comment-box">
     <form>
@@ -102,9 +100,8 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-</div>
+  
+  <a href="#" class="another-item"><%= @item.category.name %>をもっと見る</a>
+  
 
 <%= render "shared/footer" %>
