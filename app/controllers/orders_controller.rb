@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_item, only: [:index, :create]
+  before_action :set_furima, only: [:index, :create]
+  before_action :prevent_url, only: [:index, :create]
 
   def index
     @order_address = OrderAddress.new
@@ -19,7 +20,7 @@ class OrdersController < ApplicationController
 
   private
 
-  def set_item
+  def set_furima
     @item = Item.find(params[:item_id])
   end
 
@@ -32,9 +33,13 @@ class OrdersController < ApplicationController
     )
   end
 
+  def prevent_url
+    redirect_to root_path if @item.user_id == current_user.id || !@item.order.nil?
+  end
+
   def address_params
     params.require(:order_address).permit(:postcode, :prefecture_id, :city, :house_number, :building, :telephone, :token).merge(
-      user_id: current_user.id, item_id: @item, token: params[:token]
+      user_id: current_user.id, item_id: @item.id, token: params[:token]
     )
   end
 end
