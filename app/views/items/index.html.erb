@@ -119,20 +119,20 @@
   <div class='item-contents'>
     <h2 class='title'>ピックアップカテゴリー</h2>
     <%= link_to '新規投稿商品', new_item_path, class: "subtitle" %>
-    <ul class='item-lists'>
 
-     <% if @items.present? %>
+    <% if @items.present? %>
+    <ul class='item-lists'>
       <% @items.each do |item| %>
       <li class='list'>
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
-          <%= image_tag item.image, class: "item-img"%>
+          <%= image_tag item.image, class: "item-img" %>
 
-          <%# 商品が売れていればsold outを表示しましょう %>
-          <%#div class='sold-out'%>
-            <%#span>Sold Out!!</span>
-          <%#/div>
-          <%# //商品が売れていればsold outを表示しましょう %>
+          <% if item.order.present? %>
+          <div class= 'sold-out'>
+            <span>Sold Out!!</span>
+          </div >
+          <% end %>
         </div>
         <div class='item-info'>
           <h3 class='item-name'>
@@ -150,7 +150,7 @@
       <% end %>
       </li>
 
-      <% else %>
+      
       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
