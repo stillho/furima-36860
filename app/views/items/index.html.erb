@@ -121,19 +121,20 @@
     <%= link_to '新規投稿商品', new_item_path, class: "subtitle" %>
 
     <% if @items.present? %>
-    <ul class='item-lists'>
-      <% @items.each do |item| %>
-      <li class='list'>
+       <ul class='item-lists'>
+       <% @items.each do |item| %>
+       <li class='list'>
         <%= link_to item_path(item.id) do %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
-          <% if item.order.present? %>
+        <% if item.order.present? %>
           <div class= 'sold-out'>
             <span>Sold Out!!</span>
           </div >
-          <% end %>
+        <% end %>
         </div>
+
         <div class='item-info'>
           <h3 class='item-name'>
             <%= item.item_name %>
@@ -146,12 +147,12 @@
             </div>
           </div>
         </div>
-        <% end %>
-      <% end %>
-      </li>
+    <% end %>
+       </li>
+    <% end %>
 
-      
-      <li class='list'>
+      <% else %>
+       <li class='list'>
         <%= link_to '#' do %>
         <%= image_tag "https://tech-master.s3.amazonaws.com/uploads/curriculums/images/Rails1-4/sample.jpg", class: "item-img" %>
         <div class='item-info'>
@@ -167,12 +168,10 @@
           </div>
         </div>
         <% end %>
-      </li>
+       </li>
       <% end %>
-      
-    </ul>
-  </div>
-  <%# /商品一覧 %>
+      </ul>
+    </div>
 </div>
 <%= link_to(new_item_path, class: 'purchase-btn') do %>
   <span class='purchase-btn-text'>出品する</span>
